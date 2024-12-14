@@ -1,13 +1,13 @@
 import {React, useState, useEffect} from 'react'
 
-export default function SongFrame({ song, index, currentSongList }) {
-  const [currentList, setCurrentList] = useState(currentSongList);
+export default function SongFrame({ song, index, currentTrackList }) {
+  const [currentList, setCurrentList] = useState(currentTrackList);
   const [bgColor, setBgColor] = useState('');
   const [frameColor, setFrameColor] = useState('');
   const [cursorIndex, setCursorIndex] = useState(0);
 
   //On Click = banned
-  const handleItemClick = (index) => {
+  const handleItemClick = () => {
     if (song.status === 'none') {
       song.status = 'banned';
     } else {
@@ -16,10 +16,10 @@ export default function SongFrame({ song, index, currentSongList }) {
     handleRefreshList();
   };
 
-  const handleKeyPick = (currentIndex, key) => {
+  const handleKeyPick = (currentIndex, keyword) => {
     if (currentIndex === index) {
       if (song.status === 'none') {
-        song.status = key;
+        song.status = keyword;
       } else {
         song.status = 'none';
       }
@@ -29,10 +29,10 @@ export default function SongFrame({ song, index, currentSongList }) {
 
   const handleBGColor = () => {
     switch(song.status) {
-      case 'team A Picked':
+      case 'teamAPicked':
         setBgColor('bg-blue-400');
         break;
-      case 'team B Picked':
+      case 'teamBPicked':
         setBgColor('bg-red-400');
         break;
       case 'banned':
@@ -82,9 +82,9 @@ export default function SongFrame({ song, index, currentSongList }) {
     }
 
     if (event.key === 'v' || event.key === 'V') {
-      handleKeyPick(cursorIndex, 'team A Picked');
+      handleKeyPick(cursorIndex, 'teamAPicked');
     } else if (event.key === 'b' || event.key === 'B') {
-      handleKeyPick(cursorIndex, 'team B Picked');
+      handleKeyPick(cursorIndex, 'teamBPicked');
     }
   }
 
@@ -102,7 +102,7 @@ export default function SongFrame({ song, index, currentSongList }) {
     <div 
       key={index} 
       className={`h-fit w-40 text-center`}
-      onClick={() => handleItemClick(index)}
+      onClick={() => handleItemClick()}
     >
       {/* PICKED HEADER */}
       {song.status !== "none" ? (
