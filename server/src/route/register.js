@@ -30,11 +30,6 @@ export function registerController(socket, room) {
  * @returns {void}
  */
 export function registerDisplay(socket, room) {
-    if (!room) {
-        console.error('Display connected: ' + socket.id + ' but no room');
-        return;
-    }
-
     socket.join(room);
 
     socket.broadcast.to(room).emit('display:connect', socket.id);

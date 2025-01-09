@@ -3,6 +3,8 @@ import { useParams } from 'react-router';
 
 import { socket } from '../../socket';
 import SongFrame from '../../components/SongFrame';
+
+
 function Display() {
   const { room } = useParams();
   const [songList, setSongList] = useState([]);
@@ -10,10 +12,8 @@ function Display() {
   useEffect(() => {
     socket.on('connect', () => {
       console.log('connected');
-      socket.emit('who', 'display');
-      if (room) {
-        socket.emit('room', room);
-      }
+      socket.emit('who', 'display');  // handshake stuff
+      socket.emit('room', room);
     });
 
     socket.on('disconnect', () => {

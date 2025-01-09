@@ -7,13 +7,14 @@ import { BrowserRouter, Routes, Route } from "react-router";
 
 import Display from './pages/display/index';
 import Controller from './pages/controller';
+import DisplayPlaceholder from './pages/display/placeholder';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<App />} />
-      <Route path="/display" element={<Display />} />
+      <Route path="/display" element={<DisplayPlaceholder />} />
       <Route path="/display/:room" element={<Display />} />
       <Route path="/controller" element={<Controller />} />
       <Route path="/controller/:room" element={<Controller />} />
