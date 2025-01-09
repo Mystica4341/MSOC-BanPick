@@ -1,27 +1,27 @@
 {
-    "name": "test-controller",
-    "version": "0.1.0",
-    "private": true,
-    "scripts": {
-        "start": "concurrently \"npm run server\" \"npm run client\"",
-        "client": "npm start --prefix client",
-        "server": "nodemon server/src/app.js",
-        "build": "npm run build --prefix client",
-        "test": "npm test --prefix client"
-    },
-    "dependencies": {
-        "axios": "^1.7.9",
-        "concurrently": "^9.1.2",
-        "cra-template": "1.2.0",
-        "express": "^4.21.2",
-        "react": "^19.0.0",
-        "react-dom": "^19.0.0",
-        "react-router": "^7.1.1",
-        "react-scripts": "^5.0.1",
-        "socket.io": "^4.8.1",
-        "socket.io-client": "^4.8.1"
-    },
-    "devDependencies": {
-        "nodemon": "^3.1.9"
-    }
+  "name": "test-controller",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "client": "npm start --prefix client",
+    "server": "nodemon server/src/app.js",
+    "build": "npm run build --prefix client",
+    "test": "npm test --prefix client"
+  },
+  "dependencies": {
+    "axios": "^1.7.9",
+    "concurrently": "^9.1.2",
+    "cra-template": "1.2.0",
+    "express": "^4.21.2",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-router": "^7.1.1",
+    "react-scripts": "^5.0.1",
+    "socket.io": "^4.8.1",
+    "socket.io-client": "^4.8.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
 }
